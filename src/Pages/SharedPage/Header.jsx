@@ -1,25 +1,46 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo/web-tec-logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { toast } from "react-toastify";
+import { FaUserCircle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const userLocation = useLocation();
+  const userNavigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Logout Sucessfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        userNavigate(userLocation.state ? userLocation.state : "/");
+      })
+      .catch((error) => console.error(error));
+  };
+
   // header menu
   const menu = (
     <>
       <li>
-        <Link to="/">HOME</Link>
+        <Link className="hover:text-[#7EBC12]" to="/">HOME</Link>
       </li>
       <li>
-        <Link to="/products">PRODUCTS</Link>
-      </li>
-      <li>
-        <Link to="/login">LOG IN</Link>
+        <Link className="hover:text-[#7EBC12]" to="/products">PRODUCTS</Link>
       </li>
     </>
   );
 
   return (
     <>
-      <div className="navbar fixed z-10 text-xl font-bold flex flex-row items-center justify-around text-white pt-10">
+      <div className="navbar fixed z-10 text-xl font-bold flex flex-row items-center justify-around text-[#7EBC12] p-5 bg-[#1D2833]">
         {/* logo and hamberger icon section */}
         <div className="navbar-start">
           <div className="dropdown">
@@ -47,39 +68,45 @@ const Header = () => {
             </ul>
           </div>
           <div>
-           <Link to="/">
-           <img className="w-44 ml-8 md:ml-36" src={logo} alt="" />
-           </Link>
+            <Link to="/">
+              <img className="w-44 ml-8 md:ml-36" src={logo} alt="" />
+            </Link>
           </div>
         </div>
         {/* desktop menu section */}
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{menu}</ul>
+          <ul className="menu menu-horizontal px-1 text-white">{menu}</ul>
         </div>
         {/*login options */}
-        <div>
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="text-4xl rounded-full">
-                <img src="" alt="User_Profile" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="mt-4 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 w-52 text-lg font-semibold rounded-none"
-            >
-              <li>
-                <a className="justify-between"></a>
-              </li>
-              <li>
-                <Link>Logout</Link>
-              </li>
-              <li>
-                <Link>Dashboard</Link>
-              </li>
-            </ul>
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+            {
+              user ? (
+                <>
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} />
+                  </div>
+                </>
+              ) : <>
+                <Link to="/login">
+                  <div className="text-4xl dropdown dropdown-end">
+                    <FaUserCircle></FaUserCircle>
+                  </div>
+                </Link>
+              </>
+
+            }
           </div>
-      </div>
+          <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            <li>
+              <div className="justify-between">
+                {user?.displayName}
+              </div>
+            </li>
+            <li><Link>Dashboard</Link></li>
+            <li onClick={handleLogOut}><Link>Logout</Link></li>
+          </ul>
+        </div>
       </div>
     </>
   );
