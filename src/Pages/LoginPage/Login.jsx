@@ -30,20 +30,23 @@ const Login = () => {
       .then((res) => {
         console.log(res.user);
         if (res.user) {
-            Swal.fire({
-                position: "top-center",
-                icon: "success",
-                title: "Log In Sucessfully",
-                showConfirmButton: false,
-                timer: 1500
-              });
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Log In Sucessfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
           userNavigate(userLocation.state ? userLocation.state : "/");
           console.log("login checked");
         }
 
         console.log(user);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setRegisterError(error.message)
+      });
   };
 
   return (
@@ -51,7 +54,9 @@ const Login = () => {
       <div className="hero-content flex-col lg:flex-row">
         <div className="card flex-shrink-0 shadow-2xl bg-base-100 p-5 rounded-none mt-32 mb-10">
           <div className="card-body w-[30rem]">
-            <h1 className="text-2xl font-semibold text-black font-Rajdhani">Welcome Back to Web Tec</h1>
+            <h1 className="text-2xl font-semibold text-black font-Rajdhani">
+              Welcome Back to Web Tec
+            </h1>
             <p className="text-base font-normal text-[#1D2833]">
               Don't have an account yet?{" "}
               <Link to="/registration">
@@ -87,10 +92,7 @@ const Login = () => {
                   required
                 />
                 <label className="label">
-                  <a
-                    href="#"
-                    className="label-text-alt link link-hover"
-                  >
+                  <a href="#" className="label-text-alt link link-hover">
                     Forgot your password?
                   </a>
                 </label>

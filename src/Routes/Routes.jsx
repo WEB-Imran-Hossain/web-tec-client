@@ -5,6 +5,7 @@ import NotFound from "../Pages/SharedPage/NotFound";
 import Products from "../Pages/ProductsPage/Products";
 import Login from "../Pages/LoginPage/Login";
 import Registration from "../Pages/RegistrationPage/Registration";
+import About from "../Pages/AboutPage/About";
 
 export const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>
+            },
+            {
+                path: "/about",
+                element: <About></About>
             },
             {
                 path: "/products",

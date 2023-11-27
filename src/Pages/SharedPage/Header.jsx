@@ -32,6 +32,9 @@ const Header = () => {
         <Link className="hover:text-[#7EBC12]" to="/">HOME</Link>
       </li>
       <li>
+        <Link className="hover:text-[#7EBC12]" to="/about">ABOUT</Link>
+      </li>
+      <li>
         <Link className="hover:text-[#7EBC12]" to="/products">PRODUCTS</Link>
       </li>
     </>
@@ -96,15 +99,19 @@ const Header = () => {
 
             }
           </div>
-          <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-            <li>
-              <div className="justify-between">
-                {user?.displayName}
-              </div>
-            </li>
-            <li><Link>Dashboard</Link></li>
-            <li onClick={handleLogOut}><Link>Logout</Link></li>
-          </ul>
+         {
+          user &&  <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-none w-52">
+          <li>
+            <div className="justify-between">
+              {user?.displayName}
+            </div>
+          </li>
+          <li><Link>Dashboard</Link></li>
+          {
+            user && <li onClick={handleLogOut}><Link>Logout</Link></li>
+          }
+        </ul>
+         }
         </div>
       </div>
     </>
