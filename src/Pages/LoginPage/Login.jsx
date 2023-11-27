@@ -2,8 +2,7 @@ import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "./SocialLogin";
-import { ToastContainer, toast } from "react-toastify";
-import { sendPasswordResetEmail } from "firebase/auth";
+import { ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Login = () => {
@@ -45,28 +44,6 @@ const Login = () => {
         console.log(user);
       })
       .catch((error) => console.log(error));
-  };
-
-  const handleForgetPassword = () => {
-    const email = emailRef.current.value;
-    if (!email) {
-      console.log("Please provide an email", emailRef.current.value);
-      return;
-    } else if (
-      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
-    ) {
-      console.log("Please write a valid email");
-      return;
-    }
-
-    // send validation email
-    sendPasswordResetEmail(email)
-      .then(() => {
-        toast("Please check your email", { position: "top-center" });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   return (
@@ -111,7 +88,6 @@ const Login = () => {
                 />
                 <label className="label">
                   <a
-                    onClick={handleForgetPassword}
                     href="#"
                     className="label-text-alt link link-hover"
                   >

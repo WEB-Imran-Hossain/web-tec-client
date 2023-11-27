@@ -2,7 +2,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo/web-tec-logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { toast } from "react-toastify";
 import { FaUserCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
 
