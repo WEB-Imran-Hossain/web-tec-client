@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../../src/assets/images/logo/web-tec-logo.png";
+import logo from "../../assets/images/logo/web-tec-logo.png";
 
 const Header = () => {
   // header menu
@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="navbar fixed z-10 bg-opacity-30 bg-black text-xl font-bold flex flex-row items-center justify-around">
+      <div className="navbar fixed z-10 text-xl font-bold flex flex-row items-center justify-around text-white pt-10">
         {/* logo and hamberger icon section */}
         <div className="navbar-start">
           <div className="dropdown">
