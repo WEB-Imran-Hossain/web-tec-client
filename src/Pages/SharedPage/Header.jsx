@@ -37,6 +37,9 @@ const Header = () => {
       <li>
         <Link className="hover:text-[#7EBC12]" to="/products">PRODUCTS</Link>
       </li>
+      <li>
+        <Link className="hover:text-[#7EBC12]" to="/contact">CONTACT</Link>
+      </li>
     </>
   );
 
@@ -64,7 +67,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 w-52 rounded-none"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-none w-52 mt-7"
             >
               {menu}
             </ul>
@@ -100,7 +103,7 @@ const Header = () => {
             }
           </div>
          {
-          user &&  <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-none w-52">
+          user &&  <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-none w-52 mt-7">
           <li>
             <div className="justify-between">
               {user?.displayName}
