@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async";
+
 const Contact = () => {
     return (
         <div>
+             <Helmet>
+                <title>WEB TEC | CONTACT</title>
+            </Helmet>
             <div className="flex justify-center items-center pb-20 pt-12 min-h-screen text-white">
                 <div
                     className="hero min-h-screen bg-fixed "

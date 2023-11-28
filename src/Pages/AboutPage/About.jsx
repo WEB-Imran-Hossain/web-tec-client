@@ -4,10 +4,14 @@ import "aos/dist/aos.css";
 AOS.init();
 import about1 from "../../assets/images/about/ab_01.jpg";
 import about2 from "../../assets/images/about/ab_02.jpg";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
     return (
         <>
+         <Helmet>
+                <title>WEB TEC | ABOUT</title>
+            </Helmet>
             <div className="flex justify-center items-center min-h-screen text-white">
                 <div
                     className="hero min-h-screen bg-fixed "
