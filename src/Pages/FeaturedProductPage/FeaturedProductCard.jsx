@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-import { FaArrowUp } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+import { TbThumbUp } from "react-icons/tb";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useContext, useEffect, useState } from "react";
@@ -65,40 +65,46 @@ const FeaturedProductCard = ({ feature, featuredDataRefetch }) => {
 
     return (
         <>
-            {/* old style */}
-            <div className="card bg-base-100 shadow-xl h-96">
+            <div className="card bg-base-100 shadow-xl h-96 mx-auto">
                 <figure>
                     <img src={productImage} alt="" />
                 </figure>
                 <div className="card-body">
-                    <div className=" flex justify-between text-[#1D2833]">
-                        <div className="badge badge-outline text-base font-bold">{tags}</div>
-                        <div className="badge badge-outline text-base font-bold">
-                            {timestamp}
-                        </div>
-                    </div>
+                   <div className="flex flex-col md:flex-row items-center justify-between -mt-5">
+                    <div>
                     <h2
                         onClick={() => handleDetails(_id)}
-                        className="card-title cursor-pointer text-2xl uppercase font-bold text-[#1D2833] font-Rajdhani"
+                        className="card-title cursor-pointer text-3xl uppercase font-bold text-[#1D2833] hover:text-[#7EBC12] font-Rajdhani"
                     >
                         {productName}
                     </h2>
+                    </div>
+                   <div className=" flex gap-2 text-[#1D2833]">
+                        <div className="badge badge-outline text-base font-bold rounded uppercase">{tags}</div>
+                        <div className="badge badge-outline text-base font-bold rounded">
+                            {timestamp}
+                        </div>
+                    </div>
+                    
+                   </div>
                     <div className="flex justify-end items-center gap-2">
                         <div>
                             <div className="flex items-center gap-2">
-                                ( {votes})
+                               <div className="badge badge-outline text-base font-bold rounded">
+                                {votes}
+                               </div>
                                 <button
                                     onClick={() => handleUpVote(_id)}
                                     disabled={isOwner === user?.email}
                                 >
-                                    <FaArrowUp className="text-xl text-[#1D2833] hover:text-[#7EBC12]" />
+                                    
+                                    <TbThumbUp className="text-xl text-[#1D2833] hover:text-[#7EBC12]"  />
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* new style */}
             
         </>
     );
