@@ -5,7 +5,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "../LoginPage/SocialLogin";
 import { updateProfile } from "firebase/auth";
-import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Registration = () => {

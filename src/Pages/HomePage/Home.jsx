@@ -3,6 +3,7 @@ import Banner from "./Banner";
 
 import about1 from "../../assets/images/about/ab_01.jpg";
 import about2 from "../../assets/images/about/ab_02.jpg";
+import FeaturedProduct from "../FeaturedProductPage/FeaturedProduct";
 
 const Home = () => {
     return (
@@ -64,7 +65,9 @@ const Home = () => {
                 </div>
             </div>
         </div>
+        <FeaturedProduct></FeaturedProduct>
         </div>
+        
     );
 };
 

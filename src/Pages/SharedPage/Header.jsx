@@ -109,7 +109,7 @@ const Header = () => {
               {user?.displayName}
             </div>
           </li>
-          <li><Link>Dashboard</Link></li>
+          <li><Link to="/dashboard">Dashboard</Link></li>
           {
             user && <li onClick={handleLogOut}><Link>Logout</Link></li>
           }

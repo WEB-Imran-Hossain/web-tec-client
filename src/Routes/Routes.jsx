@@ -7,6 +7,10 @@ import Login from "../Pages/LoginPage/Login";
 import Registration from "../Pages/RegistrationPage/Registration";
 import About from "../Pages/AboutPage/About";
 import Contact from "../Pages/ContactPage/Contact";
+import Dashboard from "../Pages/DashBoardPage/DashBoardUser/Dashboard";
+import AllUsers from "../Pages/DashBoardPage/AllUsersPage/AllUsers";
+import FeaturedProduct from "../Pages/FeaturedProductPage/FeaturedProduct";
+import FeaturedProductDetails from "../Pages/FeaturedProductPage/FeaturedProductDetails";
 
 export const router = createBrowserRouter([
     {
@@ -37,7 +41,29 @@ export const router = createBrowserRouter([
             {
                 path: "/registration",
                 element: <Registration></Registration>
+            },
+            {
+                path: "/featured",
+                element: <FeaturedProduct></FeaturedProduct>
+            },
+            {
+                path:"/featuredDetails/:id",
+                element: <FeaturedProductDetails></FeaturedProductDetails>,
+                loader: ({params})=>fetch(`${import.meta.env.VITE_serverURL}/featured/${params.id}`)
             }
         ]
     },
+    {
+        
+            path: "dashboard",
+            element: <Dashboard></Dashboard>,
+            children: [
+                // admin users
+                {
+                    path: "allUsers",
+                    element: <AllUsers></AllUsers>
+                }
+            ]
+        
+    }
 ]);
