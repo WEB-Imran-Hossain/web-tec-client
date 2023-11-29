@@ -11,6 +11,7 @@ import Dashboard from "../Pages/DashBoardPage/DashBoardUser/Dashboard";
 import AllUsers from "../Pages/DashBoardPage/AllUsersPage/AllUsers";
 import FeaturedProduct from "../Pages/FeaturedProductPage/FeaturedProduct";
 import FeaturedProductDetails from "../Pages/FeaturedProductPage/FeaturedProductDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
     {
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:"/featuredDetails/:id",
-                element: <FeaturedProductDetails></FeaturedProductDetails>,
+                element: <PrivateRoutes><FeaturedProductDetails></FeaturedProductDetails></PrivateRoutes>,
                 loader: ({params})=>fetch(`${import.meta.env.VITE_serverURL}/featured/${params.id}`)
             }
         ]
