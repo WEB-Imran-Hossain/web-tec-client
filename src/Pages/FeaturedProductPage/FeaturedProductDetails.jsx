@@ -209,7 +209,7 @@ const FeaturedProductDetails = () => {
                        <div className="flex items-center justify-center ">
                        <div>
                        <img className="rounded-full" src={review?.photoURL} alt="review_person" />
-                       <h2 className="text-center mt-3 text-xl font-Rajdhani">{user?.displayName}</h2>
+                       <h2 className="text-center mt-3 text-xl font-Rajdhani">{review?.displayName}</h2>
                        </div>
                        </div>
                         <div className="m-24 flex flex-col items-center space-y-4">
