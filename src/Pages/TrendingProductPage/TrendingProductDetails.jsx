@@ -1,10 +1,10 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
-import { TbThumbUp } from "react-icons/tb";
+import { TbBrandCodecov, TbThumbUp } from "react-icons/tb";
 import { MdReport } from "react-icons/md";
 import { FaQuoteLeft, FaUserCircle } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -86,6 +86,7 @@ const TrendingProductDetails = () => {
                         rating,
                         photoURL: user?.photoURL,
                         displayName: user?.displayName,
+                        website: data?.website
                     })
                     .then((res) => {
                         console.log(res.data);
@@ -157,9 +158,14 @@ const TrendingProductDetails = () => {
                     <div className="card-body">
                         <div className="flex flex-col md:flex-row items-center justify-between -mt-5">
                             <div>
-                                <h2 className="card-title text-3xl uppercase font-bold text-[#1D2833] hover:text-[#7EBC12] font-Rajdhani">
-                                    {data.productName}
-                                </h2>
+                                <div className="flex">
+                                    <h2 className="card-title text-3xl uppercase font-bold text-[#1D2833] hover:text-[#7EBC12] font-Rajdhani">
+                                        {data.productName}
+                                    </h2>
+                                    <Link to={data?.website} target="_blank">
+                                        <TbBrandCodecov className="text-2xl text-[#1D2833] hover:text-[#7EBC12] -mt-2" />
+                                    </Link>
+                                </div>
                             </div>
                             <div className=" flex gap-2 text-[#1D2833]">
                                 <div className="badge badge-outline text-base font-bold rounded uppercase">
@@ -192,6 +198,7 @@ const TrendingProductDetails = () => {
                     </div>
                 </div>
             </div>
+            
             {/* review slider */}
             <Swiper
                 navigation={true}
@@ -202,7 +209,7 @@ const TrendingProductDetails = () => {
 
                 {reviewData.map((review, index) => {
                     console.log("rating finding", typeof review?.rating)
-const ratingData=parseInt(review?.rating)
+                    const ratingData = parseInt(review?.rating)
 
 
                     return (
@@ -210,17 +217,25 @@ const ratingData=parseInt(review?.rating)
                             <div className="flex items-center justify-center ">
                                 <div>
                                     <img
-                                        className="rounded-full w-16 h-16"
+                                        className="rounded-full"
                                         src={review?.photoURL}
                                         alt="review_person"
                                     />
+
                                     <h2 className="text-center mt-3 text-xl font-Rajdhani">
                                         {review?.displayName}
                                     </h2>
                                 </div>
                             </div>
-                            <div className="m-24 flex flex-col items-center space-y-4">
-                                Rating: {ratingData}
+                            <div className=" m-5 flex flex-col items-center space-y-4">
+
+                                <div className="rating">
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                </div>
                                 <FaQuoteLeft className="text-6xl" />
                                 <p className="text-center">{review?.comments}</p>
                                 <h3 className="text-3xl font-bold uppercase font-Rajdhani text-[#1D2833]">
