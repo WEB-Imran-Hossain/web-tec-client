@@ -6,7 +6,7 @@ const FeaturedProduct = () => {
   const axiosPublic = useAxiosPublic()
 
   const { data: featured = [], refetch: featuredDataRefetch } = useQuery({
-    queryKey: ['todos'], queryFn: async () => {
+    queryKey: ['featured'], queryFn: async () => {
       const result = await axiosPublic.get("/featured")
       return result.data
     }

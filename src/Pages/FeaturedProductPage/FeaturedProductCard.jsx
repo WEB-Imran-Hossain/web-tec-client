@@ -46,7 +46,7 @@ const FeaturedProductCard = ({ feature, featuredDataRefetch }) => {
         const votedBy = user?.email;
 
         axiosPublic
-            .put(`/upVotes/${id}`, { updatedVoteCount, votedBy })
+            .put(`/upVotes/featured/${id}`, { updatedVoteCount, votedBy })
             .then((res) => {
                 console.log(res);
                 setVotes(votes + 1);

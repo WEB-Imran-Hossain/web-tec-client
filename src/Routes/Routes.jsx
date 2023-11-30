@@ -12,6 +12,8 @@ import AllUsers from "../Pages/DashBoardPage/AllUsersPage/AllUsers";
 import FeaturedProduct from "../Pages/FeaturedProductPage/FeaturedProduct";
 import FeaturedProductDetails from "../Pages/FeaturedProductPage/FeaturedProductDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import TrendingProducts from "../Pages/TrendingProductPage/TrendingProducts";
+import TrendingProductDetails from "../Pages/TrendingProductPage/TrendingProductDetails";
 
 export const router = createBrowserRouter([
     {
@@ -44,27 +46,28 @@ export const router = createBrowserRouter([
                 element: <Registration></Registration>
             },
             {
-                path: "/featured",
-                element: <FeaturedProduct></FeaturedProduct>
+                path: "/featuredDetails/:id",
+                element: <PrivateRoutes><FeaturedProductDetails></FeaturedProductDetails></PrivateRoutes>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_serverURL}/featured/${params.id}`)
             },
             {
-                path:"/featuredDetails/:id",
-                element: <PrivateRoutes><FeaturedProductDetails></FeaturedProductDetails></PrivateRoutes>,
-                loader: ({params})=>fetch(`${import.meta.env.VITE_serverURL}/featured/${params.id}`)
-            }
+                path: "/trendingDetails/:id",
+                element: <PrivateRoutes><TrendingProductDetails></TrendingProductDetails></PrivateRoutes>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_serverURL}/trending/${params.id}`)
+            },
         ]
     },
     {
-        
-            path: "dashboard",
-            element: <Dashboard></Dashboard>,
-            children: [
-                // admin users
-                {
-                    path: "allUsers",
-                    element: <AllUsers></AllUsers>
-                }
-            ]
-        
+
+        path: "dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+            // admin users
+            {
+                path: "allUsers",
+                element: <AllUsers></AllUsers>
+            }
+        ]
+
     }
 ]);
