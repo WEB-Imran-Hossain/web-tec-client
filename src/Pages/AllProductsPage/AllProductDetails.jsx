@@ -7,7 +7,14 @@ import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
 import { TbThumbUp } from 'react-icons/tb';
 import { MdReport } from 'react-icons/md';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaQuoteLeft, FaUserCircle } from 'react-icons/fa';
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import { Rating } from '@smastrom/react-rating';
 
 
 const AllProductDetails = () => {
@@ -146,9 +153,9 @@ const AllProductDetails = () => {
     return (
         <div>
             <Helmet>
-                <title>WEB TEC | FEATURED PRODUCT DETAILS</title>
+                <title>WEB TEC | All PRODUCT DETAILS</title>
             </Helmet>
-            {/* featured product details */}
+            {/* All product details */}
             <div className="py-32">
                 <div className=" card lg:w-3/6  bg-base-100 shadow-xl mx-auto">
                     <figure><img src={data.productImage} alt="" /></figure>
@@ -194,7 +201,33 @@ const AllProductDetails = () => {
             </div>
             
             {/* testimonials slider */}
-           
+            <Swiper navigation={true} modules={[Navigation]} className="mySwiper w-[90vw] mx-auto">
+                {/* loop for get reviews */}
+
+                {
+                    reviewData.map(review => <SwiperSlide key={review._id}>
+                        <div className="flex items-center justify-center ">
+                            <div>
+                            <img className="rounded-full" src={review?.photoURL} alt="" />
+                            <p className="text-center mt-3 text-xl font-Rajdhani">{review?.displayName}</p>
+                            </div>
+                        </div>
+                        <div className="m-5 flex flex-col items-center space-y-4">
+                            <Rating
+                                style={{ maxWidth: 180 }}
+                                value={review?.rating}
+                                readOnly
+                            />
+                            <FaQuoteLeft className="text-6xl" />
+                            <p className="text-center">{review?.comments}</p>
+                            <h3 className="text-3xl font-bold uppercase font-Rajdhani text-[#1D2833]">
+                                {review?.productName}
+                            </h3>
+                        </div>
+                    </SwiperSlide>)
+                }
+
+            </Swiper>
 
             {/* post review */}
             <div className="mt-32 mb-32 bg-base-200 space-y-5 p-10 rounded-lg md:max-w-[50vw] mx-auto">
