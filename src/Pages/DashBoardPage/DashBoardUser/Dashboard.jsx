@@ -94,6 +94,24 @@ const Dashboard = () => {
                             Home
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/myProfile">
+                            <FaHome></FaHome>
+                            My Profile
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/addProduct">
+                            <FaHome></FaHome>
+                           Add Product
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/myProducts">
+                            <FaHome></FaHome>
+                            My Products
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
             {/* dashboard content */}
