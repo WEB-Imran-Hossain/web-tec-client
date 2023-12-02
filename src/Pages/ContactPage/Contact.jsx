@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 const Contact = () => {
     return (
         <div>
-             <Helmet>
+            <Helmet>
                 <title>WEB TEC | CONTACT</title>
             </Helmet>
             <div className="flex justify-center items-center pb-20 pt-12 min-h-screen text-white">
@@ -111,7 +111,7 @@ const Contact = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <button className="btn hover:bg-transparent text-white bg-[#7EBC12] border-[#7EBC12] hover:bg-[#1D2833] hover:border-[#1D2833] hover:text-white text-lg font-semibold rounded-none font-Rajdhani">
+                                <button className="btn hover:bg-transparent text-white bg-[#7EBC12] border-[#7EBC12] hover:bg-[#1D2833] hover:border-[#1D2833] hover:text-black text-lg font-semibold rounded-none font-Rajdhani">
                                     <input type="submit" value="SUBMIT" />
                                 </button>
                             </div>

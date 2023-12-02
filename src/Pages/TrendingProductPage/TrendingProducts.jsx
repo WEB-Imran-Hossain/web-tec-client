@@ -46,7 +46,7 @@ const TrendingProducts = () => {
       <div>
         <button
           onClick={handleAllProducts}
-          className="btn hover:bg-transparent text-white bg-[#7EBC12] border-[#7EBC12] hover:bg-[#1D2833] hover:border-[#1D2833] hover:text-white text-lg font-semibold rounded-none uppercase font-Rajdhani mt-5 mb-10 "
+          className="btn hover:bg-transparent text-white bg-[#7EBC12] border-[#7EBC12] hover:bg-[#1D2833] hover:border-[#1D2833] hover:text-black text-lg font-semibold rounded-none uppercase font-Rajdhani mt-5 mb-10 "
         >
           All Products
         </button>

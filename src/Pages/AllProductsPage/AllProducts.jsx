@@ -80,7 +80,7 @@ const AllProducts = () => {
             <input
               type="submit"
               value="Search"
-              className="btn join-item hover:bg-transparent text-white bg-[#7EBC12] border-[#7EBC12] hover:bg-[#1D2833] hover:border-[#1D2833] hover:text-white text-lg font-semibold rounded-none uppercase font-Rajdhani rounded-r-lg"
+              className="btn join-item hover:bg-transparent text-white bg-[#7EBC12] border-[#7EBC12] hover:bg-[#1D2833] hover:border-[#1D2833] hover:text-black text-lg font-semibold rounded-none uppercase font-Rajdhani rounded-r-lg"
             />
           </div>
         </form>
