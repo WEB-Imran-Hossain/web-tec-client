@@ -82,26 +82,46 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoutes>
+        <Dashboard></Dashboard>
+      </PrivateRoutes>
+    ),
     children: [
       // admin users
       {
         path: "allUsers",
-        element: <AllUsers></AllUsers>,
+        element: (
+          <PrivateRoutes>
+            <AllUsers></AllUsers>
+          </PrivateRoutes>
+        ),
       },
       // my Profile
       {
         path: "myProfile",
-        element: <MyProfile></MyProfile>,
+        element: (
+          <PrivateRoutes>
+            <MyProfile></MyProfile>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "membership",
-        element: <Membership></Membership>
+        element: (
+          <PrivateRoutes>
+            <Membership></Membership>
+          </PrivateRoutes>
+        ),
       },
       //   add product
       {
         path: "addProduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivateRoutes>
+            <AddProduct></AddProduct>
+          </PrivateRoutes>
+        ),
       },
       //   my product
       {
