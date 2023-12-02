@@ -29,6 +29,7 @@ const AddProduct = () => {
       isOwner: user?.email,
       ownerName: user?.displayName,
       ownerImage: user?.photoURL,
+      status: "pending"
     };
     console.log(newProduct);
 
