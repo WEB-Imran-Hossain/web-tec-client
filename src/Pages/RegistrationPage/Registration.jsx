@@ -6,12 +6,14 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "../LoginPage/SocialLogin";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../components/hooks/useAxiosPublic";
 
 const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [registerError, setRegisterError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const { createUser } = useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
   const userLocation = useLocation();
   const userNavigate = useNavigate();
 
@@ -53,7 +55,7 @@ const Registration = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-          userNavigate(userLocation.state ? userLocation.state : "/");
+
         }
         const currentUser = result.user;
         updateProfile(currentUser, {
@@ -62,6 +64,20 @@ const Registration = () => {
         })
           .then(() => {
             console.log("User Updated");
+            axiosPublic.post("/users", { name, email, role: "user" }).then(res => {
+              if (res.data.insertedId) {
+                console.log('user added to the database')
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'User created successfully.',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+                userNavigate(userLocation.state ? userLocation.state : "/");
+              }
+
+            })
           })
           .catch((error) => {
             console.log(error);

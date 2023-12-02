@@ -8,7 +8,7 @@ import { TbBrandCodecov, TbThumbUp } from "react-icons/tb";
 const AllProductCard = ({ feature, featuredDataRefetch }) => {
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   const navigate = useNavigate();
   const {
     _id,
@@ -22,7 +22,7 @@ const AllProductCard = ({ feature, featuredDataRefetch }) => {
     website,
   } = feature;
 
-  console.log(isOwner);
+  // console.log(isOwner);
 
   const [votes, setVotes] = useState(dbVotes);
 
@@ -45,10 +45,10 @@ const AllProductCard = ({ feature, featuredDataRefetch }) => {
     axiosPublic
       .put(`/upVotes/allproducts/${id}`, { updatedVoteCount, votedBy })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setVotes(votes + 1);
       });
-    console.log(id);
+    // console.log(id);
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const AllProductCard = ({ feature, featuredDataRefetch }) => {
   }, [featuredDataRefetch, votes]);
 
   const handleDetails = (id) => {
-    console.log("handleDetalis Id", id);
+    // console.log("handleDetalis Id", id);
     navigate(`/allProductDetails/${id}`);
   };
 

@@ -95,19 +95,19 @@ const Dashboard = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/myProfile">
+                        <NavLink to="/dashboard/myProfile">
                             <FaHome></FaHome>
                             My Profile
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/addProduct">
+                        <NavLink to="/dashboard/addProduct">
                             <FaHome></FaHome>
                            Add Product
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/myProducts">
+                        <NavLink to="/dashboard/myProducts">
                             <FaHome></FaHome>
                             My Products
                         </NavLink>

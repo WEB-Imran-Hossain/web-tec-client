@@ -13,65 +13,96 @@ import PrivateRoutes from "./PrivateRoutes";
 import TrendingProductDetails from "../Pages/TrendingProductPage/TrendingProductDetails";
 import AllProducts from "../Pages/AllProductsPage/AllProducts";
 import AllProductDetails from "../Pages/AllProductsPage/AllProductDetails";
+import MyProfile from "../Pages/DashBoardPage/MyProfilePage/MyProfile";
+import AddProduct from "../Pages/DashBoardPage/AddProductPage/AddProduct";
+import MyProduct from "../Pages/DashBoardPage/MyProductPage/MyProduct";
 
 export const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <NotFound></NotFound>,
+    children: [
+      {
         path: "/",
-        element: <Main></Main>,
-        errorElement: <NotFound></NotFound>,
-        children: [
-            {
-                path: "/",
-                element: <Home></Home>
-            },
-            {
-                path: "/about",
-                element: <About></About>
-            },
-            {
-                path: "/products",
-                element: <AllProducts></AllProducts>
-            },
-            {
-                path: "/contact",
-                element: <Contact></Contact>
-            },
-            {
-                path: "/login",
-                element: <Login></Login>
-            },
-            {
-                path: "/registration",
-                element: <Registration></Registration>
-            },
-            {
-                path: "/featuredDetails/:id",
-                element: <PrivateRoutes><FeaturedProductDetails></FeaturedProductDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`${import.meta.env.VITE_serverURL}/featured/${params.id}`)
-            },
-            {
-                path: "/trendingDetails/:id",
-                element: <PrivateRoutes><TrendingProductDetails></TrendingProductDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`${import.meta.env.VITE_serverURL}/trending/${params.id}`)
-            },
-            {
-                path: "/allProductDetails/:id",
-                element: <PrivateRoutes><AllProductDetails></AllProductDetails></PrivateRoutes>,
-                loader: ({ params }) => fetch(`${import.meta.env.VITE_serverURL}/allproducts/${params.id}`)
-            },
-        ]
-    },
-    {
-
-        path: "dashboard",
-        element: <Dashboard></Dashboard>,
-        children: [
-            // admin users
-            {
-                path: "allUsers",
-                element: <AllUsers></AllUsers>
-            }
-        ]
-
-    }
+        element: <Home></Home>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/products",
+        element: <AllProducts></AllProducts>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/registration",
+        element: <Registration></Registration>,
+      },
+      {
+        path: "/featuredDetails/:id",
+        element: (
+          <PrivateRoutes>
+            <FeaturedProductDetails></FeaturedProductDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_serverURL}/featured/${params.id}`),
+      },
+      {
+        path: "/trendingDetails/:id",
+        element: (
+          <PrivateRoutes>
+            <TrendingProductDetails></TrendingProductDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_serverURL}/trending/${params.id}`),
+      },
+      {
+        path: "/allProductDetails/:id",
+        element: (
+          <PrivateRoutes>
+            <AllProductDetails></AllProductDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_serverURL}/allproducts/${params.id}`),
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      // admin users
+      {
+        path: "allUsers",
+        element: <AllUsers></AllUsers>,
+      },
+      // my Profile
+      {
+        path: "myProfile",
+        element: <MyProfile></MyProfile>,
+      },
+      //   add product
+      {
+        path: "addProduct",
+        element: <AddProduct></AddProduct>,
+      },
+      //   my product
+      {
+        path: "myProducts",
+        element: <MyProduct></MyProduct>,
+      },
+    ],
+  },
 ]);

@@ -1,40 +1,31 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo/web-tec-logo.png";
-import { FaFacebook, FaFacebookF, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
     return (
     <>
-      <footer className="footer p-10 bg-[#1D2833] text-base-content items-center justify-around text-white flex-col">
-      <aside className="flex">
-        <div className="space-y-4 lg:-mt-14">
+      <div className="">
+      <footer className="footer p-10 bg-[#1D2833] text-base-content items-center text-white">
+      <div className="flex flex-wrap md:items-center lg:flex-row gap-10 lg:gap-32 mx-auto">
+      <aside className="">
+        <div className="space-y-4">
         <Link to="/">
               <img className="w-44" src={logo} alt="" />
             </Link>
         <p>Web Technology Ltd.<br/>Providing reliable tech since 2023</p>
         </div>
       </aside> 
-    <div className="flex gap-20 lg:gap-40">
-    <nav className="flex flex-col space-y-4">
-        <header className="footer-title">Products</header> 
-        <div className="space-y-4  flex flex-col">
-        <Link className="link link-hover">Branding</Link>
-        <Link className="link link-hover">Design</Link>
-        <Link className="link link-hover">Marketing</Link>
-        <Link className="link link-hover">Advertisement</Link>
-        </div>
-      </nav> 
-      <nav className="flex flex-col space-y-4">
-        <header className="footer-title">Company</header> 
+      <nav className="space-y-4">
+        <header className="footer-title">COMPANY</header> 
        <div className="space-y-4  flex flex-col">
        <Link className="link link-hover">About</Link>
         <Link className="link link-hover">Contact</Link>
-        <Link className="link link-hover">Jobs</Link>
-        <Link className="link link-hover">Press kit</Link>
+        <Link className="link link-hover">Products</Link>
        </div>
       </nav> 
 
-      <nav className="flex flex-col space-y-4">
+      <nav className="space-y-4">
         <header className="footer-title">CONTACTS</header> 
        <div className="space-y-4  flex flex-col">
        <Link className="">1178 Broadway 3rd Floor, #1112</Link>
@@ -42,9 +33,9 @@ const Footer = () => {
         <Link className="link link-hover">+434 43242232</Link>
        </div>
       </nav> 
-    </div>
+    
       <form>
-  <div className="flex flex-col lg:-mt-8">
+  <div className="">
   <header className="footer-title">Newsletter</header> 
     <div className="space-y-4  flex flex-col">
     <fieldset className="form-control w-80">
@@ -65,7 +56,9 @@ const Footer = () => {
     </div>
   </div>
   </form>
+      </div>
     </footer>
+    </div>
     <hr />
     <footer className="footer p-4 bg-[#1D2833] text-neutral-content justify-center">
   <div className="flex items-center">
@@ -74,6 +67,7 @@ const Footer = () => {
   </div> 
   </div>
 </footer>
+      
     </>
     
     

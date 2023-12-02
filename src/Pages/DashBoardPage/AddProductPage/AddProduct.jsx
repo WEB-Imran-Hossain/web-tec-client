@@ -1,9 +1,8 @@
-import React from 'react';
 
 const AddProduct = () => {
     return (
         <div>
-            
+            This is add Product page
         </div>
     );
 };
