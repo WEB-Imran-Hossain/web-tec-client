@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo/web-tec-logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -29,16 +29,45 @@ const Header = () => {
   const menu = (
     <>
       <li>
-        <Link className="hover:text-[#7EBC12]" to="/">HOME</Link>
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          HOME
+        </NavLink>
+
       </li>
       <li>
-        <Link className="hover:text-[#7EBC12]" to="/about">ABOUT</Link>
+      <NavLink
+          to="/about"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          ABOUT
+        </NavLink>
       </li>
       <li>
-        <Link className="hover:text-[#7EBC12]" to="/products">PRODUCTS</Link>
+      <NavLink
+          to="/products"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          PRODUCTS
+        </NavLink>
       </li>
       <li>
-        <Link className="hover:text-[#7EBC12]" to="/contact">CONTACT</Link>
+      <NavLink
+          to="/contact"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          CONTACT
+        </NavLink>
       </li>
     </>
   );
@@ -102,19 +131,19 @@ const Header = () => {
 
             }
           </div>
-         {
-          user &&  <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-none w-52 mt-7">
-          <li>
-            <div className="justify-between">
-              {user?.displayName}
-            </div>
-          </li>
-          <li><Link to="/dashboard">Dashboard</Link></li>
           {
-            user && <li onClick={handleLogOut}><Link>Logout</Link></li>
+            user && <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-none w-52 mt-7">
+              <li>
+                <div className="justify-between">
+                  {user?.displayName}
+                </div>
+              </li>
+              <li><Link to="/dashboard">Dashboard</Link></li>
+              {
+                user && <li onClick={handleLogOut}><Link>Logout</Link></li>
+              }
+            </ul>
           }
-        </ul>
-         }
         </div>
       </div>
     </>

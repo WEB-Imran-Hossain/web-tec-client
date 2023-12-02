@@ -3,38 +3,45 @@ import logo from "../../assets/images/logo/web-tec-logo.png";
 import { FaFacebookF, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
-    return (
+  return (
     <>
       <div className="">
-      <footer className="footer p-10 bg-[#1D2833] text-base-content items-center text-white">
-      <div className="flex flex-wrap md:items-center lg:flex-row gap-10 lg:gap-32 mx-auto">
-      <aside className="">
-        <div className="space-y-4">
-        <Link to="/">
-              <img className="w-44" src={logo} alt="" />
-            </Link>
-        <p>Web Technology Ltd.<br/>Providing reliable tech since 2023</p>
-        </div>
-      </aside> 
-      <nav className="space-y-4">
-        <header className="footer-title">COMPANY</header> 
-       <div className="space-y-4  flex flex-col">
-       <Link className="link link-hover">About</Link>
-        <Link className="link link-hover">Contact</Link>
-        <Link className="link link-hover">Products</Link>
-       </div>
-      </nav> 
+        <footer className="footer p-10 bg-[#1D2833] text-base-content items-center text-white">
+          <div className="flex flex-wrap md:items-center lg:flex-row gap-10 lg:gap-32 mx-auto">
+            <aside className="">
+              <div className="space-y-4">
+                <Link to="/">
+                  <img className="w-44" src={logo} alt="" />
+                </Link>
+                <p>Web Technology Ltd.<br />Providing reliable tech since 2023</p>
+              </div>
+              <div className="flex items-center gap-3 text-xl mt-5">
+                <Link><FaFacebookF className="hover:text-[#7EBC12]"></FaFacebookF></Link>
+                <Link><FaYoutube className="hover:text-[#7EBC12]"></FaYoutube></Link>
+                <Link><FaLinkedinIn className="hover:text-[#7EBC12]"></FaLinkedinIn></Link>
+              </div>
+            </aside>
+            <nav className="space-y-4">
+              <header className="footer-title">COMPANY</header>
+              <div className="space-y-4  flex flex-col">
+                <Link to="/about" className="link link-hover">About</Link>
+                <Link to="/contact" className="link link-hover">Contact</Link>
+                <Link to="/products" className="link link-hover">Products</Link>
+              </div>
+            </nav>
 
-      <nav className="space-y-4">
-        <header className="footer-title">CONTACTS</header> 
-       <div className="space-y-4  flex flex-col">
-       <Link className="">1178 Broadway 3rd Floor, #1112</Link>
-        <Link className="link link-hover">info@webtec.com</Link>
-        <Link className="link link-hover">+434 43242232</Link>
-       </div>
-      </nav> 
-    
-      {/* <form>
+            <nav className="space-y-4">
+              <header className="footer-title">CONTACTS</header>
+              <div className="space-y-4  flex flex-col">
+                <Link className="">1178 Broadway 3rd Floor, #1112</Link>
+                <Link className="link link-hover">info@webtec.com</Link>
+                <Link className="link link-hover">+434 43242232</Link>
+              </div>
+            </nav>
+
+
+
+            {/* <form>
   <div className="">
   <header className="footer-title">Newsletter</header> 
     <div className="space-y-4  flex flex-col">
@@ -56,22 +63,22 @@ const Footer = () => {
     </div>
   </div>
   </form> */}
+          </div>
+        </footer>
       </div>
-    </footer>
-    </div>
-    <hr />
-    <footer className="footer p-4 bg-[#1D2833] text-neutral-content justify-center">
-  <div className="flex items-center">
-  <div>
-    <p className=" text-base font-Rajdhani">Copyright © 2023 - All right reserved Web Tec Ltd.</p>
-  </div> 
-  </div>
-</footer>
-      
+      <hr />
+      <footer className="footer p-4 bg-[#1D2833] text-neutral-content justify-center">
+        <div className="flex items-center">
+          <div>
+            <p className=" text-base font-Rajdhani">Copyright © 2023 - All right reserved Web Tec Ltd.</p>
+          </div>
+        </div>
+      </footer>
+
     </>
-    
-    
-    );
+
+
+  );
 };
 
 export default Footer;
