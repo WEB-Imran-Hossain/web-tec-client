@@ -34,7 +34,7 @@ const Footer = () => {
        </div>
       </nav> 
     
-      <form>
+      {/* <form>
   <div className="">
   <header className="footer-title">Newsletter</header> 
     <div className="space-y-4  flex flex-col">
@@ -55,7 +55,7 @@ const Footer = () => {
   </div>
     </div>
   </div>
-  </form>
+  </form> */}
       </div>
     </footer>
     </div>
