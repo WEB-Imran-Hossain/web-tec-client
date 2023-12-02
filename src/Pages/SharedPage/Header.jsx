@@ -10,6 +10,7 @@ const Header = () => {
   const userLocation = useLocation();
   const userNavigate = useNavigate();
 
+
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -40,7 +41,7 @@ const Header = () => {
 
       </li>
       <li>
-      <NavLink
+        <NavLink
           to="/about"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
@@ -50,7 +51,7 @@ const Header = () => {
         </NavLink>
       </li>
       <li>
-      <NavLink
+        <NavLink
           to="/products"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
@@ -60,7 +61,7 @@ const Header = () => {
         </NavLink>
       </li>
       <li>
-      <NavLink
+        <NavLink
           to="/contact"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""

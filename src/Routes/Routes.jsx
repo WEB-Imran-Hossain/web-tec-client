@@ -16,6 +16,7 @@ import AllProductDetails from "../Pages/AllProductsPage/AllProductDetails";
 import MyProfile from "../Pages/DashBoardPage/MyProfilePage/MyProfile";
 import AddProduct from "../Pages/DashBoardPage/AddProductPage/AddProduct";
 import MyProduct from "../Pages/DashBoardPage/MyProductPage/MyProduct";
+import Membership from "../Pages/Membership/Membership";
 
 export const router = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
       {
         path: "myProfile",
         element: <MyProfile></MyProfile>,
+      },
+      {
+        path: "membership",
+        element: <Membership></Membership>
       },
       //   add product
       {

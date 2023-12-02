@@ -1,4 +1,4 @@
-import { FaHome, FaHouseUser, FaList, FaStar, FaTags, FaUsers } from "react-icons/fa";
+import { FaHome, FaHouseUser, FaList, FaStar, FaTags, FaUserCheck, FaUsers } from "react-icons/fa";
 import { GoGraph } from "react-icons/go";
 import { NavLink, Outlet } from "react-router-dom";
 import { BiSitemap } from "react-icons/bi";
@@ -90,7 +90,7 @@ const Dashboard = () => {
                     </li>
                     <li>
                         <NavLink to="/dashboard/myProfile">
-                            <FaHome></FaHome>
+                        <FaUserCheck />
                             My Profile
                         </NavLink>
                     </li>
