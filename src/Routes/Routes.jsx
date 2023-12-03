@@ -76,7 +76,7 @@ export const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_serverURL}/allproducts/${params.id}`),
+          fetch(`${import.meta.env.VITE_serverURL}/allproducts/all/${params.id}`),
       },
     ],
   },

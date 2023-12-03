@@ -45,7 +45,7 @@ const Contact = () => {
                             <h1 className="text-4xl font-semibold text-black font-Rajdhani">
                                 Send Your Messages
                             </h1>
-                            <div className="flex gap-3">
+                            <div className="md:flex mb-5 gap-2">
                                 <div className="form-control w-1/2">
                                     <label className="label">
                                         <span className="label-text">Name</span>
@@ -71,7 +71,7 @@ const Contact = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="flex gap-3">
+                            <div className="md:flex mb-5 gap-2">
                                 <div className="form-control w-1/2">
                                     <label className="label">
                                         <span className="label-text">Phone</span>

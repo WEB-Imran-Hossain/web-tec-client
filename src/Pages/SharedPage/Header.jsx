@@ -10,7 +10,6 @@ const Header = () => {
   const userLocation = useLocation();
   const userNavigate = useNavigate();
 
-
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -19,7 +18,7 @@ const Header = () => {
           icon: "success",
           title: "Logout Sucessfully",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
         userNavigate(userLocation.state ? userLocation.state : "/");
       })
@@ -33,18 +32,17 @@ const Header = () => {
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending ? "pending" : isActive ? "active" : "hover:bg-inherit hover:text-[#7EBC12]"
           }
         >
           HOME
         </NavLink>
-
       </li>
       <li>
         <NavLink
           to="/about"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending ? "pending" : isActive ? "active" : "hover:bg-inherit hover:text-[#7EBC12]"
           }
         >
           ABOUT
@@ -54,7 +52,7 @@ const Header = () => {
         <NavLink
           to="/products"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending ? "pending" : isActive ? "active" : "hover:bg-inherit hover:text-[#7EBC12]"
           }
         >
           PRODUCTS
@@ -64,7 +62,7 @@ const Header = () => {
         <NavLink
           to="/contact"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
+            isPending ? "pending" : isActive ? "active" : "hover:bg-inherit hover:text-[#7EBC12]"
           }
         >
           CONTACT
@@ -114,37 +112,42 @@ const Header = () => {
         </div>
         {/*login options */}
         <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-            {
-              user ? (
-                <>
-                  <div className="w-10 rounded-full">
-                    <img src={user?.photoURL} />
-                  </div>
-                </>
-              ) : <>
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
+          >
+            {user ? (
+              <>
+                <div className="w-10 rounded-full">
+                  <img src={user?.photoURL} />
+                </div>
+              </>
+            ) : (
+              <>
                 <Link to="/login">
                   <div className="text-4xl dropdown dropdown-end">
                     <FaUserCircle></FaUserCircle>
                   </div>
                 </Link>
               </>
-
-            }
+            )}
           </div>
-          {
-            user && <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-none w-52 mt-7">
+          {user && (
+            <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-none w-52 mt-7">
               <li>
-                <div className="justify-between">
-                  {user?.displayName}
-                </div>
+                <div className="justify-between">{user?.displayName}</div>
               </li>
-              <li><Link to="/dashboard">Dashboard</Link></li>
-              {
-                user && <li onClick={handleLogOut}><Link>Logout</Link></li>
-              }
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              {user && (
+                <li onClick={handleLogOut}>
+                  <Link>Logout</Link>
+                </li>
+              )}
             </ul>
-          }
+          )}
         </div>
       </div>
     </>
