@@ -17,6 +17,7 @@ import MyProfile from "../Pages/DashBoardPage/MyProfilePage/MyProfile";
 import AddProduct from "../Pages/DashBoardPage/AddProductPage/AddProduct";
 import MyProduct from "../Pages/DashBoardPage/MyProductPage/MyProduct";
 import Membership from "../Pages/Membership/Membership";
+import Statistics from "../Pages/DashBoardPage/StatisticsPage/Statistics";
 
 export const router = createBrowserRouter([
   {
@@ -76,7 +77,9 @@ export const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_serverURL}/allproducts/all/${params.id}`),
+          fetch(
+            `${import.meta.env.VITE_serverURL}/allproducts/all/${params.id}`
+          ),
       },
     ],
   },
@@ -96,6 +99,11 @@ export const router = createBrowserRouter([
             <AllUsers></AllUsers>
           </PrivateRoutes>
         ),
+      },
+      // statistics page
+      {
+        path: "statistics",
+        element: <Statistics></Statistics>,
       },
       // my Profile
       {

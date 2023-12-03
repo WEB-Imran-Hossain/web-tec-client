@@ -58,6 +58,12 @@ const Dashboard = () => {
                   Coupons
                 </NavLink>
               </li> */}
+               <li>
+                <NavLink to="/dashboard/statistics">
+                  <GoGraph />
+                  Statistics
+                </NavLink>
+              </li>
               <li>
                 <NavLink to="/dashboard/allUsers">
                   <FaUsers />
