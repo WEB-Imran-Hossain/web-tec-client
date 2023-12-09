@@ -21,8 +21,9 @@ const Statistics = () => {
 
   return (
    <>
-    <div>
-      <PieChart
+    <div className="mt-40">
+      <div className="flex items-center ">
+      <PieChart 
         series={[
           {
             data: [
@@ -32,11 +33,12 @@ const Statistics = () => {
             ],
           },
         ]}
-        width={400}
-        height={200}
+        width={600}
+        height={300}
       />
+      </div>
     </div>
-    
+
    </>
   );
 };
